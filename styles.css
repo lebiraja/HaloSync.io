@@ -1,28 +1,35 @@
- /* Global Styles */
-
+/* Global Styles */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', Arial, sans-serif;
   line-height: 1.6;
   color: #333;
   background-color: #f9f9f9;
+  transition: background-color 0.5s ease;
+}
+
+body.dark-mode {
+  background-color: #222;
+  color: #fff;
 }
 
 /* Navigation */
-
 header {
   background-color: #333;
   padding: 1em;
   text-align: center;
+  animation: slideDown 1s ease-in-out;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .logo {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: bold;
   color: #fff;
 }
@@ -32,175 +39,198 @@ header {
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .nav-links li {
-  margin-right: 20px;
+  margin: 0 20px;
 }
 
 .nav-links a {
   color: #fff;
   text-decoration: none;
-  transition: color 0.2s ease;
+  font-size: 18px;
+  transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-  color: #ccc;
+  color: #f0a500;
 }
 
 /* Hero Section */
-
 .hero-section {
   background-image: linear-gradient(to bottom, #333, #444);
   background-size: 100% 300px;
   background-position: 0% 100%;
   transition: background-position 0.5s ease;
-}
-
-.hero-section:hover {
-  background-position: 100% 100%;
+  animation: heroAnimation 2s ease-in-out;
+  padding: 100px 0;
 }
 
 .hero-content {
   max-width: 800px;
   margin: 40px auto;
   text-align: center;
+  animation: fadeIn 1s ease-in-out;
 }
 
 .hero-content h2 {
-  font-size: 36px;
+  font-size: 38px;
   font-weight: bold;
   color: #fff;
   margin-bottom: 20px;
+  animation: fadeIn 1.2s ease-in-out;
 }
 
 .hero-content p {
-  font-size: 18px;
+  font-size: 20px;
   color: #fff;
   margin-bottom: 40px;
+  animation: fadeIn 1.4s ease-in-out;
 }
 
 .cta-btn {
-  background-color: #333;
+  background-color: #f0a500;
   color: #fff;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 25px;
   font-size: 18px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .cta-btn:hover {
-  background-color: #444;
+  background-color: #e69500;
+  transform: scale(1.05);
 }
 
-/* AR Glasses Features Section */
-
+/* Features Section */
 .features-section {
   background-color: #f7f7f7;
-  padding: 40px;
+  padding: 60px 0;
+  animation: slideUp 1s ease-in-out;
 }
 
 .feature-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 20px;
 }
 
 .feature-item {
-  margin: 20px;
   width: calc(33.33% - 40px);
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.feature-item:hover {
+  transform: translateY(-10px);
 }
 
 .feature-item h3 {
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  color: #f0a500;
 }
 
 .feature-item p {
-  font-size: 18px;
-  margin-bottom: 20px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #555;
 }
 
-/* AR Entertainment Features Section */
-
+/* Entertainment Section */
 .entertainment-section {
-  background-color: #f7f7f7;
-  padding: 40px;
+  background-color: #fafafa;
+  padding: 60px 0;
+  animation: slideUp 1s ease-in-out;
 }
 
 .entertainment-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 20px;
 }
 
 .entertainment-item {
-  margin: 20px;
   width: calc(33.33% - 40px);
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+  transition: transform 0.3s ease;
+}
+
+.entertainment-item:hover {
+  transform: translateY(-10px);
 }
 
 .entertainment-item h3 {
   font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
+  color: #333;
+  margin-bottom: 15px;
 }
 
 .entertainment-item p {
-  font-size: 18px;
-  margin-bottom: 20px;
+  font-size: 16px;
+  color: #555;
 }
 
 /* Contact Section */
-
 .contact-section {
   background-color: #f7f7f7;
-  padding: 40px;
+  padding: 60px 0;
+  animation: slideUp 1s ease-in-out;
 }
 
 .contact-form {
   max-width: 600px;
-  margin: 40px auto;
+  margin: 0 auto;
   padding: 20px;
-  border: 1px solid #ddd;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.contact-form label {
-  display: block;
-  margin-bottom: 10px;
-}
-
-.contact-form input, .contact-form textarea {
+.contact-form input,
+.contact-form textarea {
   width: 100%;
   padding: 10px;
   margin-bottom: 20px;
   border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .contact-form button[type="submit"] {
-  background-color: #333;
+  background-color: #f0a500;
   color: #fff;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 25px;
   font-size: 18px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .contact-form button[type="submit"]:hover {
-  background-color: #444;
+  background-color: #e69500;
+  transform: scale(1.05);
 }
 
 /* Footer */
-
 footer {
   background-color: #333;
-  padding: 10px;
+  padding: 20px;
   text-align: center;
   color: #fff;
+  margin-top: 40px;
 }
 
 .social-links {
@@ -208,433 +238,55 @@ footer {
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: space-between Here is the updated CSS code with animations:
-
-**styles.css**
-css
-/* Global Styles */
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  justify-content: center;
+  gap: 15px;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background-color: #f9f9f9;
+.social-links a {
+  color: #fff;
+  font-size: 24px;
+  transition: color 0.3s ease;
 }
 
-/* Navigation */
+.social-links a:hover {
+  color: #f0a500;
+}
 
-header {
-  background-color: #333;
-  padding: 1em;
-  text-align: center;
-  animation: slideDown 1s ease-in-out;
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @keyframes slideDown {
-  0% {
+  from {
     transform: translateY(-100%);
   }
-  100% {
+  to {
     transform: translateY(0);
   }
-}
-
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #fff;
-}
-
-.nav-links {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-}
-
-.nav-links li {
-  margin-right: 20px;
-}
-
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.nav-links a:hover {
-  color: #ccc;
-}
-
-/* Hero Section */
-
-.hero-section {
-  background-image: linear-gradient(to bottom, #333, #444);
-  background-size: 100% 300px;
-  background-position: 0% 100%;
-  transition: background-position 0.5s ease;
-  animation: heroAnimation 2s ease-in-out;
-}
-
-@keyframes heroAnimation {
-  0% {
-    background-position: 0% 100%;
-  }
-  100% {
-    background-position: 100% 100%;
-  }
-}
-
-.hero-content {
-  max-width: 800px;
-  margin: 40px auto;
-  text-align: center;
-}
-
-.hero-content h2 {
-  font-size: 36px;
-  font-weight: bold;
-  color: #fff;
-  margin-bottom: 20px;
-  animation: fadeIn 1s ease-in-out;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.hero-content p {
-  font-size: 18px;
-  color: #fff;
-  margin-bottom: 40px;
-  animation: fadeIn 1s ease-in-out;
-}
-
-.cta-btn {
-  background-color: #333;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 18px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.cta-btn:hover {
-  background-color: #444;
-}
-
-/* AR Glasses Features Section */
-
-.features-section {
-  background-color: #f7f7f7;
-  padding: 40px;
-  animation: slideUp 1s ease-in-out;
 }
 
 @keyframes slideUp {
-  0% {
+  from {
     transform: translateY(100%);
   }
-  100% {
+  to {
     transform: translateY(0);
   }
-}
-
-.feature-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.feature-item {
-  margin: 20px;
-  width: calc(33.33% - 40px);
-  animation: fadeIn 1s ease-in-out;
-}
-
-.feature-item h3 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.feature-item p {
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-/* AR Entertainment Features Section */
-
-.entertainment-section {
-  background-color: #f7f7f7;
-  padding: 40px;
-  animation: slideUp 1s ease-in-out;
-}
-
-.entertainment-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.entertainment-item {
-  margin: 20px;
-  width: calc(33.33% - 40px);
-  animation: fadeIn 1s ease-in-out;
-}
-
-.entertainment-item h3 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.entertainment-item p {
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-/* Contact Section */
-
-.contact-section {
-  background-color: #f7f7f7;
-  padding: 40px;
-  animation: slideUp 1s ease-in-out;
-}
-
-.contact-form {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 20px;
-  border: 1px solid #ddd;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.contact-form label Here is the updated CSS code with animations:
-
-**styles.css**
-css
-/* Global Styles */
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background-color: #f9f9f9;
-}
-
-/* Navigation */
-
-header {
-  background-color: #333;
-  padding: 1em;
-  text-align: center;
-  animation: slideDown 1s ease-in-out;
-}
-
-@keyframes slideDown {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #fff;
-}
-
-.nav-links {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-}
-
-.nav-links li {
-  margin-right: 20px;
-}
-
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.nav-links a:hover {
-  color: #ccc;
-}
-
-/* Hero Section */
-
-.hero-section {
-  background-image: linear-gradient(to bottom, #333, #444);
-  background-size: 100% 300px;
-  background-position: 0% 100%;
-  transition: background-position 0.5s ease;
-  animation: heroAnimation 2s ease-in-out;
 }
 
 @keyframes heroAnimation {
-  0% {
+  from {
     background-position: 0% 100%;
   }
-  100% {
+  to {
     background-position: 100% 100%;
   }
 }
-
-.hero-content {
-  max-width: 800px;
-  margin: 40px auto;
-  text-align: center;
-}
-
-.hero-content h2 {
-  font-size: 36px;
-  font-weight: bold;
-  color: #fff;
-  margin-bottom: 20px;
-  animation: fadeIn 1s ease-in-out;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.hero-content p {
-  font-size: 18px;
-  color: #fff;
-  margin-bottom: 40px;
-  animation: fadeIn 1s ease-in-out;
-}
-
-.cta-btn {
-  background-color: #333;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 18px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.cta-btn:hover {
-  background-color: #444;
-}
-
-/* AR Glasses Features Section */
-
-.features-section {
-  background-color: #f7f7f7;
-  padding: 40px;
-  animation: slideUp 1s ease-in-out;
-}
-
-@keyframes slideUp {
-  0% {
-    transform: translateY(100%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-.feature-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.feature-item {
-  margin: 20px;
-  width: calc(33.33% - 40px);
-  animation: fadeIn 1s ease-in-out;
-}
-
-.feature-item h3 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.feature-item p {
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-/* AR Entertainment Features Section */
-
-.entertainment-section {
-  background-color: #f7f7f7;
-  padding: 40px;
-  animation: slideUp 1s ease-in-out;
-}
-
-.entertainment-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.entertainment-item {
-  margin: 20px;
-  width: calc(33.33% - 40px);
-  animation: fadeIn 1s ease-in-out;
-}
-
-.entertainment-item h3 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.entertainment-item p {
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-/* Contact Section */
-
-.contact-section {
-  background-color: #f7f7f7;
-  padding: 40px;
-  animation: slideUp 1s ease-in-out;
-}
-
-.contact-form {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 20px;
-  border: 1px solid #ddd;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
