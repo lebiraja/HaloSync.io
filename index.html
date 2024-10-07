@@ -1,25 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Holosync - AR Shopping Glasses for an Immersive Shopping and Entertainment Experience">
-    <title>Holosync - AR Shopping Glasses</title>
+    <title>Holosync AR Shopping Glasses</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <!-- Navigation -->
     <header>
-        <nav class="navbar">
-            <div class="logo">
-                <h1>Holosync</h1>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
+        <h1>Holosync</h1>
+        <nav>
+            <ul>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#entertainment">Entertainment</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -27,105 +21,68 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-section">
-        <div class="hero-content" data-aos="fade-up">
-            <h2>Welcome to the Future of Shopping</h2>
-            <p>Experience immersive shopping and entertainment with Holosync's AR Shopping Glasses. Revolutionizing the way you browse, buy, and explore.</p>
-            <a href="#features" class="cta-btn">Explore Features</a>
+    <div class="hero">
+        <h1>Welcome to the Future of Shopping</h1>
+    </div>
+
+    <section class="features-section" id="features">
+        <h2>Key Features</h2>
+        <p class="section-desc">Experience immersive shopping with our AR Shopping Glasses.</p>
+        
+        <div class="feature-item">
+            <h3>Real-Time Product Information</h3>
+            <p>Get instant details about the products you see in-store or online. See prices, reviews, and availability in real time as you browse.</p>
+        </div>
+        
+        <div class="feature-item">
+            <h3>Personalized Shopping Experience</h3>
+            <p>Receive tailored product recommendations based on your preferences, ensuring you find exactly what you’re looking for.</p>
+        </div>
+
+        <div class="feature-item">
+            <h3>AR Product Visualization</h3>
+            <p>Visualize products like furniture, clothing, or electronics in your space before making a purchase decision—all hands-free.</p>
+        </div>
+
+        <div class="feature-item">
+            <h3>Gesture-Controlled Interface</h3>
+            <p>Interact with your shopping environment using simple gestures. Select products, compare items, and finalize purchases with a wave of your hand.</p>
+        </div>
+
+        <div class="feature-item">
+            <h3>Seamless Checkout</h3>
+            <p>Finalize your purchases directly through the AR interface with integrated payment options, making shopping faster and easier than ever.</p>
         </div>
     </section>
 
-    <!-- AR Glasses Features Section -->
-    <section id="features" class="features-section">
-        <h2 data-aos="fade-right">Holosync AR Shopping Glasses - Key Features</h2>
-        <p class="section-desc" data-aos="fade-right">Holosync’s AR Shopping Glasses combine the best of augmented reality technology with shopping and entertainment, allowing users to explore and purchase products in new and innovative ways.</p>
-
-        <div class="feature-list">
-            <div class="feature-item" data-aos="zoom-in-up">
-                <h3>Real-Time Product Information</h3>
-                <p>Get instant details about the products you see in-store or online. See prices, reviews, and availability in real time as you browse.</p>
-            </div>
-            <div class="feature-item" data-aos="zoom-in-up">
-                <h3>Personalized Shopping Experience</h3>
-                <p>Receive tailored product recommendations based on your preferences, ensuring you find exactly what you’re looking for.</p>
-            </div>
-            <div class="feature-item" data-aos="zoom-in-up">
-                <h3>AR Product Visualization</h3>
-                <p>Visualize products like furniture, clothing, or electronics in your own space before making a purchase decision—all hands-free.</p>
-            </div>
-            <div class="feature-item" data-aos="zoom-in-up">
-                <h3>Gesture-Controlled Interface</h3>
-                <p>Interact with your shopping environment using simple gestures. Select products, compare items, and finalize purchases with a wave of your hand.</p>
-            </div>
-            <div class="feature-item" data-aos="zoom-in-up">
-                <h3>Seamless Checkout</h3>
-                <p>Finalize your purchases directly through the AR interface with integrated payment options, making shopping faster and easier than ever.</p>
-            </div>
-        </div>
+    <section class="entertainment-section" id="entertainment">
+        <h2>Entertainment</h2>
+        <p>Holosync’s AR Shopping Glasses provide not just a shopping experience, but also integrate entertainment features that make your time enjoyable.</p>
     </section>
 
-    <!-- AR Entertainment Features Section -->
-    <section id="entertainment" class="entertainment-section">
-        <h2 data-aos="fade-left">AR Entertainment - More than Shopping</h2>
-        <p class="section-desc" data-aos="fade-left">Holosync’s AR Shopping Glasses offer more than just shopping. Immerse yourself in a new world of entertainment while watching movies, browsing social media, or exploring digital spaces.</p>
+    <section class="contact-section" id="contact">
+        <h2>Contact Us</h2>
+        <form class="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
 
-        <div class="entertainment-list">
-            <div class="entertainment-item" data-aos="flip-left">
-                <h3>AR Effects for Movies and Shows</h3>
-                <p>Enhance your movie experience with interactive AR effects, transforming your living room into a theater of visual wonder.</p>
-            </div>
-            <div class="entertainment-item" data-aos="flip-left">
-                <h3>Instant Fashion and Product Discovery</h3>
-                <p>See an outfit or product you like on-screen? Simply gesture towards it, and our glasses will find similar products online for you to buy instantly.</p>
-            </div>
-            <div class="entertainment-item" data-aos="flip-left">
-                <h3>Social Media Integration</h3>
-                <p>Experience augmented reality interactions on your favorite social platforms. Discover new ways to engage with your friends and followers in the AR world.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <h2 data-aos="fade-up">Contact Us</h2>
-        <p data-aos="fade-up">Want to know more or have questions about Holosync's AR Shopping Glasses? Get in touch with us!</p>
-        <form action="#" method="POST" class="contact-form" data-aos="zoom-in">
-            <label for="name">Your Name:</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="email">Your Email:</label>
-            <input type="email" id="email" name="email" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
 
             <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
+            <textarea id="message" rows="5" required></textarea>
 
             <button type="submit" class="submit-btn">Send Message</button>
         </form>
-        <div class="contact-info" data-aos="fade-up">
-            <p>Email: <a href="mailto:info@holosync.com">info@holosync.com</a></p>
-            <p>Phone: [+Country Code] Phone Number</p>
-        </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Holosync. All Rights Reserved.</p>
+        <p>&copy; 2024 Holosync. All rights reserved.</p>
         <div class="social-links">
-            <a href="#">Instagram</a>
-            <a href="#">LinkedIn</a>
+            <a href="#">Facebook</a>
             <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
         </div>
     </footer>
-
-    <!-- AOS Animation Script -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
-    </script>
 </body>
-
 </html>
