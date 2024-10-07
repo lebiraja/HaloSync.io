@@ -2,6 +2,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Smooth Scrolling for Navigation Links
     const navLinks = document.querySelectorAll('nav ul li a');
+    const navLinksContainer = document.querySelector('.nav-links');
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -83,7 +84,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Hamburger Menu Toggle
     const hamburger = document.querySelector('.hamburger');
-    const navLinksContainer = document.querySelector('.nav-links');
 
     hamburger.addEventListener('click', () => {
         navLinksContainer.classList.toggle('active');
