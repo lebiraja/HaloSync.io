@@ -19,6 +19,8 @@ header {
     color: #fff;
     padding: 20px 0;
     text-align: center;
+    position: relative;
+    z-index: 2;
 }
 
 nav {
@@ -53,6 +55,40 @@ nav ul li a {
     font-size: 2.5rem;
 }
 
+.hero p {
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes bounceIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Fade-in Animation */
+.fade-in {
+    animation: fadeIn 1.5s ease forwards;
+}
+
+.slide-in {
+    animation: slideIn 2s ease forwards;
+}
+
+.bounce-in {
+    animation: bounceIn 1.8s ease forwards;
+}
+
 /* Features Section */
 .features-section {
     padding: 80px 20px;
@@ -84,57 +120,78 @@ nav ul li a {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-.info-block h3 {
-    font-size: 1.8rem;
-    color: #333;
-    margin-bottom: 15px;
+/* Bounce-in, slide-in, and fade-in for each block */
+.fade-in-left {
+    animation: fadeIn 1.5s ease forwards;
 }
 
-.info-block p {
-    font-size: 1rem;
-    color: #666;
+.fade-in-right {
+    animation: fadeIn 1.5s ease 0.5s forwards;
 }
 
 /* Entertainment Section */
 .entertainment-section {
     padding: 80px 20px;
-    background-color: #fafafa;
+    background-color: #333;
+    color: #fff;
     text-align: center;
 }
 
 .entertainment-section h2 {
     font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.entertainment-section p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+}
+
+.entertainment-section .info-block {
+    background-color: #444;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 40px 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.entertainment-section .info-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Contact Section */
 .contact-section {
     padding: 80px 20px;
-    background-color: #fff;
+    background-color: #f4f4f4;
     text-align: center;
 }
 
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
+.contact-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.contact-section form {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
-.contact-form label {
-    margin-bottom: 5px;
-}
-
-.contact-form input,
-.contact-form textarea {
+.contact-section input,
+.contact-section textarea {
     padding: 10px;
-    margin-bottom: 20px;
+    width: 300px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 1rem;
 }
 
-.submit-btn {
-    padding: 12px 20px;
-    background-color: #333;
+.contact-section button {
+    padding: 10px 20px;
+    background-color: #000;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -142,11 +199,11 @@ nav ul li a {
     transition: background-color 0.3s ease;
 }
 
-.submit-btn:hover {
-    background-color: #000;
+.contact-section button:hover {
+    background-color: #444;
 }
 
-/* Footer Styles */
+/* Footer */
 footer {
     background-color: #000;
     color: #fff;
@@ -158,27 +215,22 @@ footer {
     margin: 0 10px;
     color: #fff;
     text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #bbb;
 }
 
 /* Media Queries */
 @media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .features-section h2,
-    .entertainment-section h2 {
-        font-size: 1.8rem;
-    }
-
     .info-block {
         margin: 20px 0;
     }
-}
 
-@media (max-width: 480px) {
-    nav ul li {
-        display: block;
-        margin: 10px 0;
+    .contact-section input,
+    .contact-section textarea {
+        width: 100%;
+        max-width: 100%;
     }
 }
