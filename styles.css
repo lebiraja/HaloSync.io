@@ -234,3 +234,54 @@ footer {
         max-width: 100%;
     }
 }
+/* Basic visibility for animations */
+.fade-in, .slide-in, .fade-in-left, .fade-in-right, .bounce-in {
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.fade-in.visible, .slide-in.visible, .fade-in-left.visible, .fade-in-right.visible, .bounce-in.visible {
+    opacity: 1;
+}
+
+/* Customize animations for different classes */
+.fade-in {
+    transform: translateY(20px);
+}
+
+.fade-in.visible {
+    transform: translateY(0);
+}
+
+.slide-in {
+    transform: translateX(-100px);
+}
+
+.slide-in.visible {
+    transform: translateX(0);
+}
+
+.fade-in-left {
+    transform: translateX(-50px);
+}
+
+.fade-in-left.visible {
+    transform: translateX(0);
+}
+
+.fade-in-right {
+    transform: translateX(50px);
+}
+
+.fade-in-right.visible {
+    transform: translateX(0);
+}
+
+.bounce-in {
+    transform: scale(0.8);
+}
+
+.bounce-in.visible {
+    transform: scale(1);
+}
+
