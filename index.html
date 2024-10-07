@@ -7,13 +7,14 @@
     <meta name="description" content="Holosync - AR Shopping Glasses for an Immersive Shopping and Entertainment Experience">
     <title>Holosync - AR Shopping Glasses</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <!-- Navigation -->
     <header>
-        <nav>
+        <nav class="navbar">
             <div class="logo">
                 <h1>Holosync</h1>
             </div>
@@ -27,8 +28,8 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-section" data-aos="fade-up">
-        <div class="hero-content">
+    <section id="home" class="hero-section">
+        <div class="hero-content" data-aos="fade-up">
             <h2>Welcome to the Future of Shopping</h2>
             <p>Experience immersive shopping and entertainment with Holosync's AR Shopping Glasses. Revolutionizing the way you browse, buy, and explore.</p>
             <a href="#features" class="cta-btn">Explore Features</a>
@@ -36,28 +37,28 @@
     </section>
 
     <!-- AR Glasses Features Section -->
-    <section id="features" class="features-section" data-aos="fade-right">
-        <h2>Holosync AR Shopping Glasses - Key Features</h2>
-        <p>Holosync’s AR Shopping Glasses combine the best of augmented reality technology with shopping and entertainment, allowing users to explore and purchase products in new and innovative ways.</p>
+    <section id="features" class="features-section">
+        <h2 data-aos="fade-right">Holosync AR Shopping Glasses - Key Features</h2>
+        <p class="section-desc" data-aos="fade-right">Holosync’s AR Shopping Glasses combine the best of augmented reality technology with shopping and entertainment, allowing users to explore and purchase products in new and innovative ways.</p>
 
         <div class="feature-list">
-            <div class="feature-item" data-aos="zoom-in">
+            <div class="feature-item" data-aos="zoom-in-up">
                 <h3>Real-Time Product Information</h3>
                 <p>Get instant details about the products you see in-store or online. See prices, reviews, and availability in real time as you browse.</p>
             </div>
-            <div class="feature-item" data-aos="zoom-in">
+            <div class="feature-item" data-aos="zoom-in-up">
                 <h3>Personalized Shopping Experience</h3>
                 <p>Receive tailored product recommendations based on your preferences, ensuring you find exactly what you’re looking for.</p>
             </div>
-            <div class="feature-item" data-aos="zoom-in">
+            <div class="feature-item" data-aos="zoom-in-up">
                 <h3>AR Product Visualization</h3>
                 <p>Visualize products like furniture, clothing, or electronics in your own space before making a purchase decision—all hands-free.</p>
             </div>
-            <div class="feature-item" data-aos="zoom-in">
+            <div class="feature-item" data-aos="zoom-in-up">
                 <h3>Gesture-Controlled Interface</h3>
                 <p>Interact with your shopping environment using simple gestures. Select products, compare items, and finalize purchases with a wave of your hand.</p>
             </div>
-            <div class="feature-item" data-aos="zoom-in">
+            <div class="feature-item" data-aos="zoom-in-up">
                 <h3>Seamless Checkout</h3>
                 <p>Finalize your purchases directly through the AR interface with integrated payment options, making shopping faster and easier than ever.</p>
             </div>
@@ -65,9 +66,9 @@
     </section>
 
     <!-- AR Entertainment Features Section -->
-    <section id="entertainment" class="entertainment-section" data-aos="fade-left">
-        <h2>AR Entertainment - More than Shopping</h2>
-        <p>Holosync’s AR Shopping Glasses offer more than just shopping. Immerse yourself in a new world of entertainment while watching movies, browsing social media, or exploring digital spaces.</p>
+    <section id="entertainment" class="entertainment-section">
+        <h2 data-aos="fade-left">AR Entertainment - More than Shopping</h2>
+        <p class="section-desc" data-aos="fade-left">Holosync’s AR Shopping Glasses offer more than just shopping. Immerse yourself in a new world of entertainment while watching movies, browsing social media, or exploring digital spaces.</p>
 
         <div class="entertainment-list">
             <div class="entertainment-item" data-aos="flip-left">
@@ -86,9 +87,9 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact-section" data-aos="fade-up">
-        <h2>Contact Us</h2>
-        <p>Want to know more or have questions about Holosync's AR Shopping Glasses? Get in touch with us!</p>
+    <section id="contact" class="contact-section">
+        <h2 data-aos="fade-up">Contact Us</h2>
+        <p data-aos="fade-up">Want to know more or have questions about Holosync's AR Shopping Glasses? Get in touch with us!</p>
         <form action="#" method="POST" class="contact-form" data-aos="zoom-in">
             <label for="name">Your Name:</label>
             <input type="text" id="name" name="name" required>
@@ -101,12 +102,14 @@
 
             <button type="submit" class="submit-btn">Send Message</button>
         </form>
-        <p>Email: <a href="mailto:info@holosync.com">info@holosync.com</a></p>
-        <p>Phone: [+Country Code] Phone Number</p>
+        <div class="contact-info" data-aos="fade-up">
+            <p>Email: <a href="mailto:info@holosync.com">info@holosync.com</a></p>
+            <p>Phone: [+Country Code] Phone Number</p>
+        </div>
     </section>
 
     <!-- Footer -->
-    <footer data-aos="fade-up">
+    <footer>
         <p>&copy; 2024 Holosync. All Rights Reserved.</p>
         <div class="social-links">
             <a href="#">Instagram</a>
@@ -116,11 +119,11 @@
     </footer>
 
     <!-- AOS Animation Script -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
         AOS.init({
             duration: 1000,
-            once: true,
+            once: true
         });
     </script>
 </body>
