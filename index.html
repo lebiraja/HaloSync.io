@@ -4,104 +4,140 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Holosync AR Shopping Glasses</title>
-    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHq6S0CjBKhQkZm4e4jZ3kA5X3Js3bT7aYXZzIy0aHRvYBi+I1rX2+4+ySYKq3PQKb4eyXWg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1 class="fade-in">Holosync</h1>
-        <nav>
-            <ul>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#entertainment">Entertainment</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <h1 class="logo">Holosync</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#entertainment">Entertainment</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
     </header>
 
     <div class="hero">
-        <h1 class="slide-in">Welcome to the Future of Shopping</h1>
-        <p class="fade-in">Transform the way you shop with our AR-enabled Holosync Shopping Glasses. Explore. Interact. Purchase. All through an immersive virtual experience.</p>
+        <div class="hero-content">
+            <h1 class="slide-in">Welcome to the Future of Shopping</h1>
+            <p class="fade-in">Transform the way you shop with our AR-enabled Holosync Shopping Glasses. Explore. Interact. Purchase. All through an immersive virtual experience.</p>
+            <a href="#features" class="btn primary-btn fade-in">Learn More</a>
+        </div>
     </div>
 
     <section class="features-section" id="features">
-        <h2 class="fade-in">Key Features</h2>
-        <p class="section-desc">Experience a new world of interactive shopping.</p>
+        <div class="container">
+            <h2 class="fade-in">Key Features</h2>
+            <p class="section-desc">Experience a new world of interactive shopping.</p>
 
-        <div class="info-block fade-in-left">
-            <h3>Real-Time Product Information</h3>
-            <p>Our AR glasses provide instant information about the products you’re browsing. Whether it’s online or in-store, you’ll see price comparisons, reviews, and product availability.</p>
-        </div>
-        
-        <div class="info-block fade-in-right">
-            <h3>Personalized Recommendations</h3>
-            <p>AI-driven recommendations tailored to your preferences for a more curated shopping experience. Discover the products you love before you even search for them.</p>
-        </div>
+            <div class="features-grid">
+                <div class="info-block fade-in-left">
+                    <i class="fas fa-info-circle feature-icon"></i>
+                    <h3>Real-Time Product Information</h3>
+                    <p>Our AR glasses provide instant information about the products you’re browsing. Whether it’s online or in-store, you’ll see price comparisons, reviews, and product availability.</p>
+                </div>
+                
+                <div class="info-block fade-in-right">
+                    <i class="fas fa-star feature-icon"></i>
+                    <h3>Personalized Recommendations</h3>
+                    <p>AI-driven recommendations tailored to your preferences for a more curated shopping experience. Discover the products you love before you even search for them.</p>
+                </div>
 
-        <div class="info-block fade-in-left">
-            <h3>AR Product Visualization</h3>
-            <p>Virtually place products in your space before you buy them. Preview furniture, fashion, or home decor through augmented reality, eliminating guesswork from your shopping experience.</p>
-        </div>
+                <div class="info-block fade-in-left">
+                    <i class="fas fa-eye feature-icon"></i>
+                    <h3>AR Product Visualization</h3>
+                    <p>Virtually place products in your space before you buy them. Preview furniture, fashion, or home decor through augmented reality, eliminating guesswork from your shopping experience.</p>
+                </div>
 
-        <div class="info-block fade-in-right">
-            <h3>Gesture-Controlled Interface</h3>
-            <p>Control your shopping journey without lifting a finger. Browse, select, and compare products using simple hand gestures, making the experience smooth and intuitive.</p>
-        </div>
+                <div class="info-block fade-in-right">
+                    <i class="fas fa-hand-pointer feature-icon"></i>
+                    <h3>Gesture-Controlled Interface</h3>
+                    <p>Control your shopping journey without lifting a finger. Browse, select, and compare products using simple hand gestures, making the experience smooth and intuitive.</p>
+                </div>
 
-        <div class="info-block fade-in-left">
-            <h3>Seamless Checkout</h3>
-            <p>Finalizing your purchase has never been easier. Our integrated payment system allows you to complete transactions in seconds, right through the glasses interface.</p>
+                <div class="info-block fade-in-left">
+                    <i class="fas fa-credit-card feature-icon"></i>
+                    <h3>Seamless Checkout</h3>
+                    <p>Finalizing your purchase has never been easier. Our integrated payment system allows you to complete transactions in seconds, right through the glasses interface.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <section class="entertainment-section" id="entertainment">
-        <h2 class="fade-in">Entertainment at Your Fingertips</h2>
-        <p>Holosync Glasses aren’t just for shopping—they also provide an integrated entertainment experience. Watch videos, play interactive games, or even collaborate in augmented reality.</p>
+        <div class="container">
+            <h2 class="fade-in">Entertainment at Your Fingertips</h2>
+            <p>Holosync Glasses aren’t just for shopping—they also provide an integrated entertainment experience. Watch videos, play interactive games, or even collaborate in augmented reality.</p>
 
-        <div class="info-block bounce-in">
-            <h3>Watch Movies and Shows</h3>
-            <p>Immerse yourself in a world of entertainment. Stream your favorite shows, movies, or YouTube videos directly on the glasses while you’re shopping or relaxing.</p>
-        </div>
+            <div class="entertainment-grid">
+                <div class="info-block bounce-in">
+                    <i class="fas fa-film feature-icon"></i>
+                    <h3>Watch Movies and Shows</h3>
+                    <p>Immerse yourself in a world of entertainment. Stream your favorite shows, movies, or YouTube videos directly on the glasses while you’re shopping or relaxing.</p>
+                </div>
 
-        <div class="info-block bounce-in">
-            <h3>Interactive AR Games</h3>
-            <p>Play games built for augmented reality right through your glasses. Compete with friends or dive into a solo adventure during your downtime.</p>
-        </div>
+                <div class="info-block bounce-in">
+                    <i class="fas fa-gamepad feature-icon"></i>
+                    <h3>Interactive AR Games</h3>
+                    <p>Play games built for augmented reality right through your glasses. Compete with friends or dive into a solo adventure during your downtime.</p>
+                </div>
 
-        <div class="info-block bounce-in">
-            <h3>Collaborative Spaces</h3>
-            <p>Work with colleagues or friends in shared AR environments. Draw, build, or strategize in real-time as if you were in the same room, no matter where you are.</p>
+                <div class="info-block bounce-in">
+                    <i class="fas fa-users feature-icon"></i>
+                    <h3>Collaborative Spaces</h3>
+                    <p>Work with colleagues or friends in shared AR environments. Draw, build, or strategize in real-time as if you were in the same room, no matter where you are.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <section class="contact-section" id="contact">
-        <h2 class="fade-in">Get in Touch</h2>
-        <p>Have questions or want to know more? Contact us today!</p>
-        <form class="contact-form">
-            <label for="name">Name:</label>
-            <input type="text" id="name" required>
+        <div class="container">
+            <h2 class="fade-in">Get in Touch</h2>
+            <p>Have questions or want to know more? Contact us today!</p>
+            <form class="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
 
-            <label for="message">Message:</label>
-            <textarea id="message" rows="5" required></textarea>
+                <label for="message">Message:</label>
+                <textarea id="message" rows="5" required></textarea>
 
-            <button type="submit" class="submit-btn">Send Message</button>
-        </form>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 Holosync. All rights reserved.</p>
-        <div class="social-links">
-            <a href="#">Facebook</a>
-            <a href="#">Twitter</a>
-            <a href="#">Instagram</a>
+        <div class="container">
+            <p>&copy; 2024 Holosync. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
         </div>
     </footer>
 
+    <!-- JavaScript -->
     <script src="app.js"></script>
 </body>
 </html>
