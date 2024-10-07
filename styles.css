@@ -1,0 +1,152 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+}
+
+/* Navigation */
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Hero Section */
+.hero-section {
+    background: url('your-image.jpg') no-repeat center center/cover;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-section h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero-section .cta-btn {
+    background: #ff6f61;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+}
+
+/* About Us Section */
+.about-section {
+    padding: 50px 20px;
+    background: #f4f4f4;
+    text-align: center;
+}
+
+.about-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* Services Section */
+.services-section {
+    padding: 50px 20px;
+    background: #fff;
+}
+
+.services-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.service-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.service-item {
+    width: 45%;
+    margin-bottom: 20px;
+}
+
+/* Projects Section */
+.projects-section {
+    padding: 50px 20px;
+    background: #f4f4f4;
+}
+
+.projects-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.project-item {
+    margin-bottom: 20px;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 50px 20px;
+    background: #fff;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form label {
+    margin-bottom: 5px;
+}
+
+.contact-form input, .contact-form textarea {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+}
+
+.submit-btn {
+    background: #ff6f61;
+    padding: 10px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+footer .social-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
