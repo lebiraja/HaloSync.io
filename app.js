@@ -10,9 +10,14 @@ document.addEventListener("DOMContentLoaded", function() {
             const targetSection = document.querySelector(targetId);
             
             window.scrollTo({
-                top: targetSection.offsetTop - 50,
+                top: targetSection.offsetTop - 60, // Adjusted for sticky header height
                 behavior: 'smooth'
             });
+
+            // Close the mobile menu if open
+            if (navLinksContainer.classList.contains('active')) {
+                navLinksContainer.classList.remove('active');
+            }
         });
     });
 
@@ -27,20 +32,21 @@ document.addEventListener("DOMContentLoaded", function() {
         const message = document.querySelector('#message').value.trim();
         
         let valid = true;
-        
+        let errorMessages = [];
+
         // Basic validation
         if (name === "") {
-            alert("Please enter your name");
+            errorMessages.push("Please enter your name.");
             valid = false;
         }
         
         if (!validateEmail(email)) {
-            alert("Please enter a valid email address");
+            errorMessages.push("Please enter a valid email address.");
             valid = false;
         }
         
         if (message === "") {
-            alert("Please enter a message");
+            errorMessages.push("Please enter a message.");
             valid = false;
         }
         
@@ -48,6 +54,8 @@ document.addEventListener("DOMContentLoaded", function() {
         if (valid) {
             alert("Thank you for your message! We will get back to you shortly.");
             form.reset(); // Reset form fields
+        } else {
+            alert(errorMessages.join("\n"));
         }
     });
     
@@ -64,6 +72,7 @@ document.addEventListener("DOMContentLoaded", function() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Stop observing once visible
             }
         });
     }, {
@@ -71,4 +80,12 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     
     animatedElements.forEach(el => observer.observe(el));
+
+    // Hamburger Menu Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinksContainer = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+        navLinksContainer.classList.toggle('active');
+    });
 });
