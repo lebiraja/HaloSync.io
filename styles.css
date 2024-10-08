@@ -418,3 +418,84 @@ footer {
 .bounce-in {
     transform: scale(0.8);
 }
+/* Basic styling */
+.features-section {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #181818;
+  color: white;
+}
+
+.features-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.features-section p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.feature-card {
+  background-color: #242424;
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.feature-card p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Hover effect for animations */
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive behavior for desktop */
+@media (min-width: 768px) {
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .feature-card h3 {
+    font-size: 1.75rem;
+  }
+
+  .feature-card p {
+    font-size: 1.1rem;
+  }
+}
+
+/* Mobile styling */
+@media (max-width: 767px) {
+  .features-section {
+    padding: 20px 10px;
+  }
+
+  .feature-card {
+    padding: 15px;
+  }
+
+  .feature-card h3 {
+    font-size: 1.25rem;
+  }
+
+  .feature-card p {
+    font-size: 0.9rem;
+  }
+}
