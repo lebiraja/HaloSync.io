@@ -118,71 +118,72 @@ nav {
     }
 }
 
+/* Global Styles */
+:root {
+    --primary-color: #ff6347; /* Example primary color */
+    --text-light: #ffffff; /* Light text color */
+}
+
 /* Hero Section */
 .hero {
-    background: url('path/to/your/hero-image.jpg') center/cover no-repeat;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(34, 34, 34, 0.8)); /* Subtle black to dark gray gradient */
+    animation: gradientAnimation 10s ease infinite; /* Animation effect */
     color: var(--text-light);
-    height: 100vh; /* Full viewport height */
-    width: 100vw; /* Full viewport width */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 150px 20px;
     text-align: center;
     position: relative;
 }
 
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.7); /* Dark overlay for better text readability */
+/* Gradient Animation */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 0%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
 }
 
-.hero-content {
-    position: relative;
-    z-index: 1;
+/* Feature Section */
+.features {
+    display: flex;
+    flex-wrap: wrap; /* Ensure items wrap on smaller screens */
+    justify-content: space-between; /* Space items evenly */
+    margin: 20px auto; /* Center the section */
+    padding: 20px; /* Add padding */
+    max-width: 1200px; /* Max width for desktop */
 }
 
-.hero h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 3rem;
-    margin-bottom: 20px;
-    color: var(--text-light);
-    animation: fadeIn 1.5s ease forwards;
+/* Individual Feature Item */
+.feature-item {
+    flex: 1 1 calc(30% - 20px); /* Flex basis for 3 items per row with spacing */
+    margin: 10px; /* Margin for spacing */
+    padding: 20px; /* Padding inside each feature item */
+    background: #f5f5f5; /* Background for feature items */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s; /* Smooth hover effect */
 }
 
-.hero p {
-    font-size: 1.3rem;
-    margin-bottom: 30px;
-    color: var(--text-light);
-    animation: slideIn 2s ease forwards;
+/* Hover Effect for Feature Items */
+.feature-item:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
 }
 
-.btn {
-    display: inline-block;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    font-weight: 700;
-    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
-    animation: fadeIn 1.5s ease forwards;
-    animation-delay: 0.5s;
-    opacity: 0;
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .feature-item {
+        flex: 1 1 calc(45% - 20px); /* 2 items per row on tablets */
+    }
 }
 
-.primary-btn {
-    background-color: var(--secondary-grey);
-    color: var(--text-light);
-}
-
-.primary-btn:hover {
-    background-color: var(--highlight);
-    transform: translateY(-3px);
+@media (max-width: 480px) {
+    .feature-item {
+        flex: 1 1 100%; /* Full width on mobile */
+    }
 }
 
 /* Animations */
