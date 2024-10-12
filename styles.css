@@ -8,7 +8,7 @@
     box-sizing: border-box;
 }
 
-/* Root Variables for Dark Color Palette and Transitions */
+/* Root Variables for Dark Color Palette */
 :root {
     --primary-black: #000000;
     --primary-dark-grey: #1a1a1a;
@@ -22,9 +22,6 @@
     --background-color: #121212;
     --header-height: 70px;
     --transition-speed: 0.3s;
-    --gradient-animation-duration: 15s;
-    --gradient-color-start: #000000;
-    --gradient-color-end: #1a1a1a;
 }
 
 /* Body */
@@ -123,10 +120,7 @@ nav {
 
 /* Hero Section */
 .hero {
-    /* Subtle black to dark gray gradient */
-    background: linear-gradient(270deg, var(--gradient-color-start), var(--gradient-color-end));
-    background-size: 400% 400%;
-    animation: gradientAnimation var(--gradient-animation-duration) ease infinite;
+    background: url('path/to/your/hero-image.jpg') center/cover no-repeat;
     color: var(--text-light);
     height: 100vh; /* Full viewport height */
     width: 100vw; /* Full viewport width */
@@ -137,20 +131,16 @@ nav {
     position: relative;
 }
 
-/* Gradient Animation */
-@keyframes gradientAnimation {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7); /* Dark overlay for better text readability */
 }
 
-/* Hero Content */
 .hero-content {
     position: relative;
     z-index: 1;
@@ -211,27 +201,11 @@ nav {
     to { transform: scale(1); opacity: 1; }
 }
 
-@keyframes fadeInLeft {
-    from { opacity: 0; transform: translateX(-50px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes fadeInRight {
-    from { opacity: 0; transform: translateX(50px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
 /* Features Section */
 .features-section {
     padding: 80px 20px;
     background-color: var(--secondary-grey);
     text-align: center;
-    animation: fadeIn 1.5s ease forwards;
-    opacity: 0;
-}
-
-.features-section.visible {
-    opacity: 1;
 }
 
 .features-section h2 {
@@ -268,6 +242,10 @@ nav {
     animation: fadeInLeft 1.5s ease forwards;
 }
 
+.info-block:nth-child(odd) {
+    animation: fadeInLeft 1.5s ease forwards;
+}
+
 .info-block:nth-child(even) {
     animation: fadeInRight 1.5s ease forwards;
 }
@@ -289,12 +267,6 @@ nav {
     background-color: var(--primary-black);
     color: var(--text-light);
     text-align: center;
-    animation: fadeIn 1.5s ease forwards;
-    opacity: 0;
-}
-
-.entertainment-section.visible {
-    opacity: 1;
 }
 
 .entertainment-section h2 {
@@ -449,6 +421,11 @@ footer p {
 
 /* Media Queries */
 @media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
     .features-grid,
     .entertainment-grid {
         grid-template-columns: 1fr;
@@ -501,6 +478,20 @@ footer p {
 
 .bounce-in {
     transform: scale(0.8);
+}
+
+/* Additional Styles for Improved Layout */
+.features-section,
+.entertainment-section,
+.contact-section {
+    animation: fadeIn 1.5s ease forwards;
+    opacity: 0;
+}
+
+.features-section.visible,
+.entertainment-section.visible,
+.contact-section.visible {
+    opacity: 1;
 }
 
 /* Remove any crossed-out elements if present */
