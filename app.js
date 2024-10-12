@@ -5,7 +5,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const navLinksContainer = document.querySelector('.nav-links');
     const hamburger = document.querySelector('.hamburger');
     const form = document.querySelector('.contact-form');
-    const animatedElements = document.querySelectorAll('.features-section, .entertainment-section, .contact-section, .hero-content, .logo, .nav-links, .social-links a');
+    const animatedElements = document.querySelectorAll(
+        '.features-section, 
+         .entertainment-section, 
+         .contact-section, 
+         .hero-content, 
+         .logo, 
+         .nav-links, 
+         .social-links a'
+    );
 
     // Smooth Scrolling for Navigation Links
     navLinks.forEach(link => {
@@ -96,19 +104,10 @@ document.addEventListener("DOMContentLoaded", () => {
         inputElement.classList.add('input-error');
         inputElement.parentElement.appendChild(error);
 
-        // Optionally, add CSS for error messages
-        // Example CSS:
-        /*
-        .error-message {
-            color: red;
-            font-size: 0.9rem;
-            margin-top: 5px;
-            animation: fadeIn 0.5s ease forwards;
-        }
-        .input-error {
-            border-color: red;
-        }
-        */
+        // Trigger CSS transition for error
+        setTimeout(() => {
+            error.classList.add('visible');
+        }, 10); // Slight delay to allow transition
     }
 
     // Function to display all error messages in an alert box
@@ -149,26 +148,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Optional: Scroll-To-Top Button (if you choose to implement it)
-    /*
-    const scrollToTopBtn = document.getElementById('scrollToTop');
-    
-    window.addEventListener('scroll', debounce(() => {
-        if (window.scrollY > 300) {
-            scrollToTopBtn.classList.add('visible');
-        } else {
-            scrollToTopBtn.classList.remove('visible');
-        }
-    }, 100));
-    
-    scrollToTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-    */
-    
     // Debounce function to limit the rate at which a function can fire.
     const debounce = (func, wait = 20, immediate = true) => {
         let timeout;
