@@ -120,7 +120,7 @@ nav {
 
 /* Hero Section */
 .hero {
-    background: url('path/to/your/hero-image.jpg') center/cover no-repeat;
+    background: url('HaloSync_backgrounmg.jpg') center/cover no-repeat;
     color: var(--text-light);
     height: 100vh; /* Full viewport height */
     width: 100vw; /* Full viewport width */
