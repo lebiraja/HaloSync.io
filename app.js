@@ -3,53 +3,35 @@ document.addEventListener("DOMContentLoaded", function() {
     // Smooth Scrolling for Navigation Links
     const navLinks = document.querySelectorAll('nav ul li a');
     const navLinksContainer = document.querySelector('.nav-links');
-    const hamburger = document.querySelector('.hamburger');
-
+    
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
-
-            if (targetSection) {
-                window.scrollTo({
-                    top: targetSection.offsetTop - 70, // Adjusted for sticky header height
-                    behavior: 'smooth'
-                });
-            }
+            
+            window.scrollTo({
+                top: targetSection.offsetTop - 70, // Adjusted for sticky header height
+                behavior: 'smooth'
+            });
 
             // Close the mobile menu if open
             if (navLinksContainer.classList.contains('active')) {
                 navLinksContainer.classList.remove('active');
-                hamburger.setAttribute('aria-expanded', 'false');
             }
         });
     });
 
-    // Hamburger Menu Toggle with Accessibility
-    hamburger.addEventListener('click', () => {
-        navLinksContainer.classList.toggle('active');
-        const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
-        hamburger.setAttribute('aria-expanded', !expanded);
-    });
-
-    // Enable hamburger menu toggle with Enter key
-    hamburger.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            hamburger.click();
-        }
-    });
-
     // Form Validation
     const form = document.querySelector('.contact-form');
-
+    
     form.addEventListener('submit', function(e) {
         e.preventDefault();
-
+        
         const name = document.querySelector('#name').value.trim();
         const email = document.querySelector('#email').value.trim();
         const message = document.querySelector('#message').value.trim();
-
+        
         let valid = true;
         let errorMessages = [];
 
@@ -58,49 +40,52 @@ document.addEventListener("DOMContentLoaded", function() {
             errorMessages.push("Please enter your name.");
             valid = false;
         }
-
+        
         if (!validateEmail(email)) {
             errorMessages.push("Please enter a valid email address.");
             valid = false;
         }
-
+        
         if (message === "") {
             errorMessages.push("Please enter a message.");
             valid = false;
         }
-
-        // Display errors or success message
+        
+        // If form is valid, simulate a form submission success
         if (valid) {
-            // Simulate form submission (replace with actual submission logic)
             alert("Thank you for your message! We will get back to you shortly.");
             form.reset(); // Reset form fields
         } else {
             alert(errorMessages.join("\n"));
         }
     });
-
+    
     // Email validation function
     function validateEmail(email) {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(String(email).toLowerCase());
     }
-
-    // Scroll-triggered Animations using Intersection Observer
+    
+    // Scroll-triggered Animations
     const animatedElements = document.querySelectorAll('.fade-in, .slide-in, .fade-in-left, .fade-in-right, .bounce-in');
-
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
+    
+    const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
                 observer.unobserve(entry.target); // Stop observing once visible
             }
         });
-    }, observerOptions);
-
+    }, {
+        threshold: 0.1
+    });
+    
     animatedElements.forEach(el => observer.observe(el));
+
+    // Hamburger Menu Toggle
+    const hamburger = document.querySelector('.hamburger');
+
+    hamburger.addEventListener('click', () => {
+        navLinksContainer.classList.toggle('active');
+    });
 });
