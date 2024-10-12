@@ -6,13 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const hamburger = document.querySelector('.hamburger');
     const form = document.querySelector('.contact-form');
     const animatedElements = document.querySelectorAll(
-        '.features-section, 
-         .entertainment-section, 
-         .contact-section, 
-         .hero-content, 
-         .logo, 
-         .nav-links, 
-         .social-links a'
+        '.features-section, .entertainment-section, .contact-section, .hero-content, .logo, .nav-links, .social-links a'
     );
 
     // Smooth Scrolling for Navigation Links
