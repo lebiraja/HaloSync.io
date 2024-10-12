@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const navLinksContainer = document.querySelector('.nav-links');
     const hamburger = document.querySelector('.hamburger');
     const form = document.querySelector('.contact-form');
-    const animatedElements = document.querySelectorAll('.fade-in, .slide-in, .fade-in-left, .fade-in-right, .bounce-in');
-    
+    const animatedElements = document.querySelectorAll('.features-section, .entertainment-section, .contact-section, .hero-content, .logo, .nav-links, .social-links a');
+
     // Smooth Scrolling for Navigation Links
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
@@ -24,7 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
             // Close the mobile menu if open
             if (navLinksContainer.classList.contains('active')) {
                 navLinksContainer.classList.remove('active');
-                // Animate hamburger to closed state
                 hamburger.classList.remove('is-active');
             }
         });
@@ -97,8 +96,19 @@ document.addEventListener("DOMContentLoaded", () => {
         inputElement.classList.add('input-error');
         inputElement.parentElement.appendChild(error);
 
-        // Trigger CSS animation for error
-        error.classList.add('fade-in');
+        // Optionally, add CSS for error messages
+        // Example CSS:
+        /*
+        .error-message {
+            color: red;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        .input-error {
+            border-color: red;
+        }
+        */
     }
 
     // Function to display all error messages in an alert box
@@ -131,49 +141,34 @@ document.addEventListener("DOMContentLoaded", () => {
     const observer = new IntersectionObserver(observerCallback, observerOptions);
     animatedElements.forEach(el => observer.observe(el));
 
-    // Additional JavaScript Animations
+    // Keyboard Accessibility for Hamburger Menu
+    hamburger.setAttribute('tabindex', '0');
+    hamburger.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            hamburger.click();
+        }
+    });
 
-    // Animate Hamburger Menu Icon when toggled
-    // CSS should define the 'is-active' class for the hamburger icon animations
-    // Example CSS (to be added to your CSS file):
+    // Optional: Scroll-To-Top Button (if you choose to implement it)
     /*
-    .hamburger.is-active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-    .hamburger.is-active span:nth-child(2) {
-        opacity: 0;
-    }
-    .hamburger.is-active span:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
-    }
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    
+    window.addEventListener('scroll', debounce(() => {
+        if (window.scrollY > 300) {
+            scrollToTopBtn.classList.add('visible');
+        } else {
+            scrollToTopBtn.classList.remove('visible');
+        }
+    }, 100));
+    
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
     */
-
-    // Animate Elements on Hover for Interactive Feedback
-    // Example: Animate buttons with JavaScript for more control
-    const buttons = document.querySelectorAll('.btn, .submit-btn');
-
-    buttons.forEach(button => {
-        button.addEventListener('mouseenter', () => {
-            button.classList.add('hover-animate');
-        });
-        button.addEventListener('mouseleave', () => {
-            button.classList.remove('hover-animate');
-        });
-    });
-
-    // Function to handle continuous background animations or other dynamic effects
-    // Example: Parallax effect for the hero section
-    const hero = document.querySelector('.hero');
-    window.addEventListener('mousemove', (e) => {
-        const { clientX, clientY } = e;
-        const centerX = window.innerWidth / 2;
-        const centerY = window.innerHeight / 2;
-        const deltaX = (clientX - centerX) / centerX;
-        const deltaY = (clientY - centerY) / centerY;
-
-        hero.style.backgroundPosition = `${50 + deltaX * 5}% ${50 + deltaY * 5}%`;
-    });
-
+    
     // Debounce function to limit the rate at which a function can fire.
     const debounce = (func, wait = 20, immediate = true) => {
         let timeout;
