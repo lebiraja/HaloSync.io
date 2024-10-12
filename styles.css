@@ -21,6 +21,7 @@
     --button-hover: #333333;
     --background-color: #121212;
     --header-height: 70px;
+    --transition-speed: 0.3s;
 }
 
 /* Body */
@@ -47,18 +48,23 @@ header {
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    text-align: center; /* Center the header content */
 }
 
 .logo {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.8rem;
     font-weight: 700;
+    display: inline-block; /* Ensures the logo respects the centering */
 }
 
+/* Navigation */
 nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center; /* Center navigation links */
+    gap: 40px; /* Increased gap for better spacing */
+    margin-top: 10px;
 }
 
 .nav-links {
@@ -71,7 +77,7 @@ nav {
     color: var(--text-light);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: color var(--transition-speed) ease;
 }
 
 .nav-links li a:hover {
@@ -85,7 +91,12 @@ nav {
     color: var(--text-light);
 }
 
+/* Mobile Navigation */
 @media (max-width: 768px) {
+    nav {
+        justify-content: space-between;
+    }
+
     .nav-links {
         position: absolute;
         top: var(--header-height);
@@ -94,7 +105,8 @@ nav {
         background-color: var(--primary-black);
         width: 100%;
         text-align: center;
-        transition: left 0.3s ease;
+        transition: left var(--transition-speed) ease;
+        padding: 20px 0;
     }
 
     .nav-links.active {
@@ -110,7 +122,11 @@ nav {
 .hero {
     background: url('path/to/your/hero-image.jpg') center/cover no-repeat;
     color: var(--text-light);
-    padding: 150px 20px;
+    height: 100vh; /* Full viewport height */
+    width: 100vw; /* Full viewport width */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     position: relative;
 }
@@ -135,12 +151,14 @@ nav {
     font-size: 3rem;
     margin-bottom: 20px;
     color: var(--text-light);
+    animation: fadeIn 1.5s ease forwards;
 }
 
 .hero p {
     font-size: 1.3rem;
     margin-bottom: 30px;
     color: var(--text-light);
+    animation: slideIn 2s ease forwards;
 }
 
 .btn {
@@ -151,7 +169,10 @@ nav {
     cursor: pointer;
     text-decoration: none;
     font-weight: 700;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+    animation: fadeIn 1.5s ease forwards;
+    animation-delay: 0.5s;
+    opacity: 0;
 }
 
 .primary-btn {
@@ -180,19 +201,6 @@ nav {
     to { transform: scale(1); opacity: 1; }
 }
 
-/* Fade-in Animation */
-.fade-in {
-    animation: fadeIn 1.5s ease forwards;
-}
-
-.slide-in {
-    animation: slideIn 2s ease forwards;
-}
-
-.bounce-in {
-    animation: bounceIn 1.8s ease forwards;
-}
-
 /* Features Section */
 .features-section {
     padding: 80px 20px;
@@ -205,12 +213,16 @@ nav {
     font-size: 2.5rem;
     margin-bottom: 20px;
     color: var(--text-light);
+    animation: fadeIn 1.5s ease forwards;
 }
 
 .section-desc {
     font-size: 1.2rem;
     margin-bottom: 40px;
     color: var(--text-light);
+    animation: fadeIn 1.5s ease forwards;
+    animation-delay: 0.5s;
+    opacity: 0;
 }
 
 .features-grid {
@@ -224,8 +236,18 @@ nav {
     padding: 30px 20px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
     position: relative;
+    opacity: 0;
+    animation: fadeInLeft 1.5s ease forwards;
+}
+
+.info-block:nth-child(odd) {
+    animation: fadeInLeft 1.5s ease forwards;
+}
+
+.info-block:nth-child(even) {
+    animation: fadeInRight 1.5s ease forwards;
 }
 
 .info-block:hover {
@@ -252,12 +274,16 @@ nav {
     font-size: 2.5rem;
     margin-bottom: 20px;
     color: var(--text-light);
+    animation: fadeIn 1.5s ease forwards;
 }
 
 .entertainment-section p {
     font-size: 1.2rem;
     margin-bottom: 40px;
     color: var(--text-light);
+    animation: fadeIn 1.5s ease forwards;
+    animation-delay: 0.5s;
+    opacity: 0;
 }
 
 .entertainment-grid {
@@ -271,8 +297,10 @@ nav {
     padding: 30px 20px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
     position: relative;
+    opacity: 0;
+    animation: bounceIn 1.8s ease forwards;
 }
 
 .entertainment-section .info-block:hover {
@@ -296,12 +324,16 @@ nav {
     font-size: 2.5rem;
     margin-bottom: 20px;
     color: var(--text-light);
+    animation: fadeIn 1.5s ease forwards;
 }
 
 .contact-section p {
     font-size: 1.2rem;
     margin-bottom: 40px;
     color: var(--text-light);
+    animation: fadeIn 1.5s ease forwards;
+    animation-delay: 0.5s;
+    opacity: 0;
 }
 
 .contact-form {
@@ -328,7 +360,7 @@ nav {
     border-radius: 5px;
     font-size: 1rem;
     color: var(--text-light);
-    transition: border 0.3s ease, background-color 0.3s ease;
+    transition: border var(--transition-speed) ease, background-color var(--transition-speed) ease;
 }
 
 .contact-form input::placeholder,
@@ -338,11 +370,11 @@ nav {
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-    border-color: var(--light-grey);
-    outline: none;
-    background-color: var(--secondary-grey);
+    border: 1px solid var(--highlight);
+    background-color: var(--primary-black);
 }
 
+/* Submit Button */
 .submit-btn {
     background-color: var(--secondary-grey);
     color: var(--text-light);
@@ -351,7 +383,10 @@ nav {
     border-radius: 5px;
     cursor: pointer;
     font-weight: 700;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+    animation: fadeIn 1.5s ease forwards;
+    animation-delay: 1s;
+    opacity: 0;
 }
 
 .submit-btn:hover {
@@ -367,11 +402,16 @@ footer {
     padding: 20px 0;
 }
 
+footer p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
 .social-links a {
     margin: 0 10px;
     color: var(--text-light);
     font-size: 1.2rem;
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
 }
 
 .social-links a:hover {
@@ -381,7 +421,13 @@ footer {
 
 /* Media Queries */
 @media (max-width: 768px) {
-    .features-grid, .entertainment-grid {
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .features-grid,
+    .entertainment-grid {
         grid-template-columns: 1fr;
     }
 
@@ -391,6 +437,21 @@ footer {
 
     .hero p {
         font-size: 1.1rem;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .info-block {
+        padding: 20px 15px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 10px 12px;
+        font-size: 0.9rem;
     }
 }
 
@@ -418,85 +479,22 @@ footer {
 .bounce-in {
     transform: scale(0.8);
 }
-/* Basic styling */
-.features-section {
-  text-align: center;
-  padding: 50px 20px;
-  background-color: #181818;
-  color: white;
+
+/* Additional Styles for Improved Layout */
+.features-section,
+.entertainment-section,
+.contact-section {
+    animation: fadeIn 1.5s ease forwards;
+    opacity: 0;
 }
 
-.features-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+.features-section.visible,
+.entertainment-section.visible,
+.contact-section.visible {
+    opacity: 1;
 }
 
-.features-section p {
-  font-size: 1.2rem;
-  margin-bottom: 40px;
+/* Remove any crossed-out elements if present */
+.crossed-out {
+    display: none;
 }
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  justify-items: center;
-}
-
-.feature-card {
-  background-color: #242424;
-  padding: 20px;
-  border-radius: 8px;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.feature-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-}
-
-.feature-card p {
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-/* Hover effect for animations */
-.feature-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* Responsive behavior for desktop */
-@media (min-width: 768px) {
-  .features-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .feature-card h3 {
-    font-size: 1.75rem;
-  }
-
-  .feature-card p {
-    font-size: 1.1rem;
-  }
-}
-
-/* Mobile styling */
-@media (max-width: 767px) {
-  .features-section {
-    padding: 20px 10px;
-  }
-
-  .feature-card {
-    padding: 15px;
-  }
-
-  .feature-card h3 {
-    font-size: 1.25rem;
-  }
-
-  .feature-card p {
-    font-size: 0.9rem;
-  }
-}
-
