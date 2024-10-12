@@ -22,6 +22,11 @@
     --background-color: #121212;
     --header-height: 70px;
     --transition-speed: 0.3s;
+    
+    /* New Animation Variables */
+    --animation-duration: 0.6s;
+    --animation-delay: 0.2s;
+    --animation-ease: cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 /* Body */
@@ -30,6 +35,7 @@ body {
     line-height: 1.6;
     background-color: var(--background-color);
     color: var(--text-light);
+    overflow-x: hidden; /* Prevent horizontal scroll due to animations */
 }
 
 /* Container */
@@ -49,6 +55,7 @@ header {
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0,0,0,0.5);
     text-align: center; /* Center the header content */
+    animation: slideDown 1s ease forwards;
 }
 
 .logo {
@@ -56,6 +63,7 @@ header {
     font-size: 1.8rem;
     font-weight: 700;
     display: inline-block; /* Ensures the logo respects the centering */
+    animation: fadeIn 1.5s ease forwards;
 }
 
 /* Navigation */
@@ -71,17 +79,42 @@ nav {
     list-style: none;
     display: flex;
     gap: 20px;
+    animation: fadeIn 1.5s ease forwards;
+    animation-delay: 0.5s;
+    opacity: 0;
+}
+
+.nav-links.active {
+    left: 0;
 }
 
 .nav-links li a {
     color: var(--text-light);
     text-decoration: none;
     font-weight: 500;
-    transition: color var(--transition-speed) ease;
+    transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
+    position: relative;
+    display: inline-block;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: var(--highlight);
+    left: 0;
+    bottom: -5px;
+    transition: width var(--transition-speed) ease;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
 }
 
 .nav-links li a:hover {
     color: var(--light-grey);
+    animation: pulse 1s infinite;
 }
 
 .hamburger {
@@ -89,6 +122,9 @@ nav {
     font-size: 1.5rem;
     cursor: pointer;
     color: var(--text-light);
+    animation: fadeIn 1.5s ease forwards;
+    animation-delay: 1s;
+    opacity: 0;
 }
 
 /* Mobile Navigation */
@@ -120,7 +156,7 @@ nav {
 
 /* Hero Section */
 .hero {
-    background: url('HaloSync_backgrounmg.jpg') center/cover no-repeat;
+    background: url('HaloSync_background.jpg') center/cover no-repeat;
     color: var(--text-light);
     height: 100vh; /* Full viewport height */
     width: 100vw; /* Full viewport width */
@@ -129,6 +165,7 @@ nav {
     justify-content: center;
     text-align: center;
     position: relative;
+    overflow: hidden;
 }
 
 .hero::before {
@@ -144,6 +181,7 @@ nav {
 .hero-content {
     position: relative;
     z-index: 1;
+    animation: zoomIn 1.5s ease forwards;
 }
 
 .hero h1 {
@@ -151,14 +189,14 @@ nav {
     font-size: 3rem;
     margin-bottom: 20px;
     color: var(--text-light);
-    animation: fadeIn 1.5s ease forwards;
+    animation: fadeIn 1.5s ease forwards, float 3s ease-in-out infinite;
 }
 
 .hero p {
     font-size: 1.3rem;
     margin-bottom: 30px;
     color: var(--text-light);
-    animation: slideIn 2s ease forwards;
+    animation: slideIn 2s ease forwards, fadeIn 2s ease forwards;
 }
 
 .btn {
@@ -170,7 +208,7 @@ nav {
     text-decoration: none;
     font-weight: 700;
     transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
-    animation: fadeIn 1.5s ease forwards;
+    animation: fadeIn 1.5s ease forwards, pulse 2s infinite;
     animation-delay: 0.5s;
     opacity: 0;
 }
@@ -182,7 +220,7 @@ nav {
 
 .primary-btn:hover {
     background-color: var(--highlight);
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.05);
 }
 
 /* Animations */
@@ -201,11 +239,60 @@ nav {
     to { transform: scale(1); opacity: 1; }
 }
 
+@keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* New Animations */
+@keyframes rotateIn {
+    from { transform: rotate(-200deg); opacity: 0; }
+    to { transform: rotate(0deg); opacity: 1; }
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-10px); }
+    40%, 80% { transform: translateX(10px); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 5px var(--highlight); }
+    50% { box-shadow: 0 0 20px var(--highlight); }
+}
+
 /* Features Section */
 .features-section {
     padding: 80px 20px;
     background-color: var(--secondary-grey);
     text-align: center;
+    animation: fadeIn 1.5s ease forwards, staggerFadeIn 1.5s ease forwards;
 }
 
 .features-section h2 {
@@ -213,14 +300,14 @@ nav {
     font-size: 2.5rem;
     margin-bottom: 20px;
     color: var(--text-light);
-    animation: fadeIn 1.5s ease forwards;
+    animation: fadeIn 1.5s ease forwards, rotateIn 1s ease forwards;
 }
 
 .section-desc {
     font-size: 1.2rem;
     margin-bottom: 40px;
     color: var(--text-light);
-    animation: fadeIn 1.5s ease forwards;
+    animation: fadeIn 1.5s ease forwards, slideIn 1.5s ease forwards;
     animation-delay: 0.5s;
     opacity: 0;
 }
@@ -239,26 +326,29 @@ nav {
     transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
     position: relative;
     opacity: 0;
-    animation: fadeInLeft 1.5s ease forwards;
 }
 
 .info-block:nth-child(odd) {
     animation: fadeInLeft 1.5s ease forwards;
+    animation-delay: 0.3s;
 }
 
 .info-block:nth-child(even) {
     animation: fadeInRight 1.5s ease forwards;
+    animation-delay: 0.3s;
 }
 
 .info-block:hover {
     transform: translateY(-10px);
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.9);
+    animation: glow 1.5s ease infinite;
 }
 
 .feature-icon {
     font-size: 2rem;
     color: var(--light-grey);
     margin-bottom: 15px;
+    animation: rotateIn 1s ease forwards;
 }
 
 /* Entertainment Section */
@@ -267,6 +357,7 @@ nav {
     background-color: var(--primary-black);
     color: var(--text-light);
     text-align: center;
+    animation: fadeIn 1.5s ease forwards, staggerZoomIn 1.5s ease forwards;
 }
 
 .entertainment-section h2 {
@@ -274,14 +365,14 @@ nav {
     font-size: 2.5rem;
     margin-bottom: 20px;
     color: var(--text-light);
-    animation: fadeIn 1.5s ease forwards;
+    animation: fadeIn 1.5s ease forwards, rotateIn 1s ease forwards;
 }
 
 .entertainment-section p {
     font-size: 1.2rem;
     margin-bottom: 40px;
     color: var(--text-light);
-    animation: fadeIn 1.5s ease forwards;
+    animation: fadeIn 1.5s ease forwards, slideIn 2s ease forwards;
     animation-delay: 0.5s;
     opacity: 0;
 }
@@ -301,15 +392,18 @@ nav {
     position: relative;
     opacity: 0;
     animation: bounceIn 1.8s ease forwards;
+    animation-delay: 0.3s;
 }
 
 .entertainment-section .info-block:hover {
     transform: translateY(-10px);
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.9);
+    animation: shake 0.5s ease infinite;
 }
 
 .entertainment-section .feature-icon {
     color: var(--light-grey);
+    animation: rotateIn 1s ease forwards;
 }
 
 /* Contact Section */
@@ -317,6 +411,7 @@ nav {
     padding: 80px 20px;
     background-color: var(--secondary-grey);
     text-align: center;
+    animation: fadeIn 1.5s ease forwards, staggerSlideIn 1.5s ease forwards;
 }
 
 .contact-section h2 {
@@ -324,14 +419,14 @@ nav {
     font-size: 2.5rem;
     margin-bottom: 20px;
     color: var(--text-light);
-    animation: fadeIn 1.5s ease forwards;
+    animation: fadeIn 1.5s ease forwards, rotateIn 1s ease forwards;
 }
 
 .contact-section p {
     font-size: 1.2rem;
     margin-bottom: 40px;
     color: var(--text-light);
-    animation: fadeIn 1.5s ease forwards;
+    animation: fadeIn 1.5s ease forwards, slideIn 1.5s ease forwards;
     animation-delay: 0.5s;
     opacity: 0;
 }
@@ -341,6 +436,9 @@ nav {
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    animation: fadeIn 1.5s ease forwards, staggerFadeIn 1.5s ease forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
 }
 
 .contact-form label {
@@ -361,6 +459,9 @@ nav {
     font-size: 1rem;
     color: var(--text-light);
     transition: border var(--transition-speed) ease, background-color var(--transition-speed) ease;
+    animation: fadeIn 1.5s ease forwards;
+    animation-delay: 0.6s;
+    opacity: 0;
 }
 
 .contact-form input::placeholder,
@@ -384,14 +485,14 @@ nav {
     cursor: pointer;
     font-weight: 700;
     transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
-    animation: fadeIn 1.5s ease forwards;
+    animation: fadeIn 1.5s ease forwards, pulse 2s infinite;
     animation-delay: 1s;
     opacity: 0;
 }
 
 .submit-btn:hover {
     background-color: var(--highlight);
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.05);
 }
 
 /* Footer */
@@ -400,6 +501,7 @@ footer {
     color: var(--text-light);
     text-align: center;
     padding: 20px 0;
+    animation: fadeIn 1.5s ease forwards, slideUp 1s ease forwards;
 }
 
 footer p {
@@ -412,11 +514,15 @@ footer p {
     color: var(--text-light);
     font-size: 1.2rem;
     transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
+    animation: fadeIn 1.5s ease forwards;
+    animation-delay: 0.5s;
+    opacity: 0;
 }
 
 .social-links a:hover {
     color: var(--light-grey);
     transform: scale(1.2);
+    animation: glow 1.5s ease infinite;
 }
 
 /* Media Queries */
@@ -424,6 +530,7 @@ footer p {
     nav {
         flex-direction: column;
         gap: 10px;
+        justify-content: space-between;
     }
 
     .features-grid,
@@ -497,4 +604,68 @@ footer p {
 /* Remove any crossed-out elements if present */
 .crossed-out {
     display: none;
+}
+
+/* **New Keyframe Animations** */
+
+/* Slide Down for Header */
+@keyframes slideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+/* Rotate In */
+@keyframes rotateIn {
+    from { transform: rotate(-200deg); opacity: 0; }
+    to { transform: rotate(0deg); opacity: 1; }
+}
+
+/* Zoom In */
+@keyframes zoomIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Float Animation for Hero Title */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Shake Animation */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-10px); }
+    40%, 80% { transform: translateX(10px); }
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Glow Animation */
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 5px var(--highlight); }
+    50% { box-shadow: 0 0 20px var(--highlight); }
+}
+
+/* Staggered Fade-In for Sections */
+@keyframes staggerFadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Staggered Zoom-In */
+@keyframes staggerZoomIn {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Slide Up for Footer */
+@keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
 }
