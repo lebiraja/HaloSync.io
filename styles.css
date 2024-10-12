@@ -21,6 +21,7 @@
     --button-hover: #333333;
     --background-color: #121212;
     --header-height: 70px;
+    --transition-speed: 0.3s;
 }
 
 /* Body */
@@ -29,6 +30,7 @@ body {
     line-height: 1.6;
     background-color: var(--background-color);
     color: var(--text-light);
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Container */
@@ -36,6 +38,7 @@ body {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 15px; /* Added padding for better spacing */
 }
 
 /* Header Styles */
@@ -47,6 +50,7 @@ header {
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    transition: background-color var(--transition-speed) ease;
 }
 
 .logo {
@@ -71,7 +75,7 @@ nav {
     color: var(--text-light);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: color var(--transition-speed) ease;
 }
 
 .nav-links li a:hover {
@@ -83,18 +87,26 @@ nav {
     font-size: 1.5rem;
     cursor: pointer;
     color: var(--text-light);
+    transition: transform var(--transition-speed) ease;
 }
 
+.hamburger:hover {
+    transform: rotate(90deg);
+}
+
+/* Mobile Navigation */
 @media (max-width: 768px) {
     .nav-links {
-        position: absolute;
+        position: fixed;
         top: var(--header-height);
         left: -100%;
         flex-direction: column;
         background-color: var(--primary-black);
         width: 100%;
+        height: calc(100% - var(--header-height));
         text-align: center;
-        transition: left 0.3s ease;
+        gap: 30px;
+        transition: left var(--transition-speed) ease;
     }
 
     .nav-links.active {
@@ -113,6 +125,9 @@ nav {
     padding: 150px 20px;
     text-align: center;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero::before {
@@ -128,6 +143,8 @@ nav {
 .hero-content {
     position: relative;
     z-index: 1;
+    max-width: 800px;
+    animation: fadeIn 1.5s ease forwards;
 }
 
 .hero h1 {
@@ -135,12 +152,14 @@ nav {
     font-size: 3rem;
     margin-bottom: 20px;
     color: var(--text-light);
+    animation: slideIn 1.5s ease forwards;
 }
 
 .hero p {
     font-size: 1.3rem;
     margin-bottom: 30px;
     color: var(--text-light);
+    animation: fadeIn 2s ease forwards;
 }
 
 .btn {
@@ -151,7 +170,7 @@ nav {
     cursor: pointer;
     text-decoration: none;
     font-weight: 700;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
 }
 
 .primary-btn {
@@ -171,7 +190,7 @@ nav {
 }
 
 @keyframes slideIn {
-    from { transform: translateY(50px); opacity: 0; }
+    from { transform: translateY(-50px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
 
@@ -180,13 +199,12 @@ nav {
     to { transform: scale(1); opacity: 1; }
 }
 
-/* Fade-in Animation */
 .fade-in {
     animation: fadeIn 1.5s ease forwards;
 }
 
 .slide-in {
-    animation: slideIn 2s ease forwards;
+    animation: slideIn 1.5s ease forwards;
 }
 
 .bounce-in {
@@ -205,12 +223,14 @@ nav {
     font-size: 2.5rem;
     margin-bottom: 20px;
     color: var(--text-light);
+    animation: fadeIn 1.5s ease forwards;
 }
 
 .section-desc {
     font-size: 1.2rem;
     margin-bottom: 40px;
     color: var(--text-light);
+    animation: fadeIn 2s ease forwards;
 }
 
 .features-grid {
@@ -224,8 +244,9 @@ nav {
     padding: 30px 20px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
     position: relative;
+    animation: fadeIn 2.5s ease forwards;
 }
 
 .info-block:hover {
@@ -252,12 +273,14 @@ nav {
     font-size: 2.5rem;
     margin-bottom: 20px;
     color: var(--text-light);
+    animation: fadeIn 1.5s ease forwards;
 }
 
 .entertainment-section p {
     font-size: 1.2rem;
     margin-bottom: 40px;
     color: var(--text-light);
+    animation: fadeIn 2s ease forwards;
 }
 
 .entertainment-grid {
@@ -271,8 +294,9 @@ nav {
     padding: 30px 20px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
     position: relative;
+    animation: bounceIn 2.5s ease forwards;
 }
 
 .entertainment-section .info-block:hover {
@@ -296,12 +320,14 @@ nav {
     font-size: 2.5rem;
     margin-bottom: 20px;
     color: var(--text-light);
+    animation: fadeIn 1.5s ease forwards;
 }
 
 .contact-section p {
     font-size: 1.2rem;
     margin-bottom: 40px;
     color: var(--text-light);
+    animation: fadeIn 2s ease forwards;
 }
 
 .contact-form {
@@ -309,6 +335,8 @@ nav {
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .contact-form label {
@@ -322,13 +350,12 @@ nav {
 .contact-form textarea {
     padding: 12px 15px;
     width: 100%;
-    max-width: 500px;
     background-color: var(--primary-dark-grey);
     border: 1px solid var(--accent-grey);
     border-radius: 5px;
     font-size: 1rem;
     color: var(--text-light);
-    transition: border 0.3s ease, background-color 0.3s ease;
+    transition: border var(--transition-speed) ease, background-color var(--transition-speed) ease;
 }
 
 .contact-form input::placeholder,
@@ -351,7 +378,7 @@ nav {
     border-radius: 5px;
     cursor: pointer;
     font-weight: 700;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
 }
 
 .submit-btn:hover {
@@ -371,7 +398,7 @@ footer {
     margin: 0 10px;
     color: var(--text-light);
     font-size: 1.2rem;
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
 }
 
 .social-links a:hover {
@@ -379,10 +406,70 @@ footer {
     transform: scale(1.2);
 }
 
-/* Media Queries */
+/* Media Queries for Desktop */
+@media (min-width: 1024px) {
+    .hero {
+        padding: 200px 20px;
+    }
+
+    .hero h1 {
+        font-size: 4rem;
+    }
+
+    .hero p {
+        font-size: 1.5rem;
+    }
+
+    .features-grid,
+    .entertainment-grid {
+        gap: 40px;
+    }
+
+    .info-block {
+        animation-duration: 3s;
+    }
+}
+
+/* Media Queries for Tablets */
+@media (max-width: 1023px) and (min-width: 769px) {
+    .hero {
+        padding: 180px 20px;
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .hero p {
+        font-size: 1.4rem;
+    }
+
+    .features-grid,
+    .entertainment-grid {
+        gap: 35px;
+    }
+
+    .info-block {
+        animation-duration: 2.5s;
+    }
+}
+
+/* Visibility for Animations */
+.visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Additional Responsive Adjustments */
 @media (max-width: 768px) {
-    .features-grid, .entertainment-grid {
-        grid-template-columns: 1fr;
+    .features-section,
+    .entertainment-section,
+    .contact-section {
+        padding: 60px 20px;
+    }
+
+    .hero {
+        padding: 120px 20px;
     }
 
     .hero h1 {
@@ -392,110 +479,13 @@ footer {
     .hero p {
         font-size: 1.1rem;
     }
-}
 
-/* Visibility for Animations */
-.fade-in, .slide-in, .fade-in-left, .fade-in-right, .bounce-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.5s ease-in-out;
-}
+    .features-grid,
+    .entertainment-grid {
+        grid-template-columns: 1fr;
+    }
 
-.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Specific Animations */
-.fade-in-left {
-    transform: translateX(-50px);
-}
-
-.fade-in-right {
-    transform: translateX(50px);
-}
-
-.bounce-in {
-    transform: scale(0.8);
-}
-/* Basic styling */
-.features-section {
-  text-align: center;
-  padding: 50px 20px;
-  background-color: #181818;
-  color: white;
-}
-
-.features-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-
-.features-section p {
-  font-size: 1.2rem;
-  margin-bottom: 40px;
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  justify-items: center;
-}
-
-.feature-card {
-  background-color: #242424;
-  padding: 20px;
-  border-radius: 8px;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.feature-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-}
-
-.feature-card p {
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-/* Hover effect for animations */
-.feature-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* Responsive behavior for desktop */
-@media (min-width: 768px) {
-  .features-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .feature-card h3 {
-    font-size: 1.75rem;
-  }
-
-  .feature-card p {
-    font-size: 1.1rem;
-  }
-}
-
-/* Mobile styling */
-@media (max-width: 767px) {
-  .features-section {
-    padding: 20px 10px;
-  }
-
-  .feature-card {
-    padding: 15px;
-  }
-
-  .feature-card h3 {
-    font-size: 1.25rem;
-  }
-
-  .feature-card p {
-    font-size: 0.9rem;
-  }
+    .info-block {
+        padding: 20px;
+    }
 }
